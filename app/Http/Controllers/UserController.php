@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -14,7 +16,11 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('pages.user.index');
+        $users = User::where('status', 0)
+               ->orderBy('name', 'desc')
+               ->get();
+
+        return view('pages.user.index', ['users' => $users]);
     }
 
     /**
@@ -26,7 +32,7 @@ class UserController extends Controller
     {
         //
         return view('pages.user.create');
-        
+
     }
 
     /**
@@ -38,6 +44,21 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+        'name' => 'required|unique:users|max:255',
+        'email' => 'required|unique:users|max:255',
+        'password' => 'required|min:8',
+        'alamat' => 'required|min:8'
+        ]);
+
+        $newUser = new User;
+        $newUser->name = $request->name;
+        $newUser->email = $request->email;
+        $newUser->password = $request->password;
+        $newUser->alamat = $request->alamat;
+
+        $newUser->save();
+
     }
 
     /**

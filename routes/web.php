@@ -11,8 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.dashboard');
-});
 
-Route::resource('user','UserController');
+
+Route::group(['middleware' => 'web'], function() {
+    // Place all your web routes here...(Cut all `Route` which are define in `Route file`, paste here)
+    Route::get('/', function () {
+        return view('pages.dashboard');
+    });
+    Route::get('/user', function () {
+        return view('user','UserController@index');
+    });
+    Route::resource('user','UserController');
+});
