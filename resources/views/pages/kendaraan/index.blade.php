@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <h5>Data User</h5>
+    <h5>Data Kendaraan</h5>
     <div id="card-advance" class="card card-default">
 
             <div class="card-body">
-                <a href="{{route('user.create')}}" class="text-right pull-right btn btn-complete btn-cons">Tambah Baru</a>
+                <a href="{{route('kendaraan.create')}}" class="text-right pull-right btn btn-complete btn-cons">Tambah Baru</a>
                     <div class="table-responsive">
                             <table class="table table-striped" id="stripedTable">
                                 <thead>
@@ -12,9 +12,9 @@
 
                                         <th style="width:10%">#</th>
                                         <th style="">Nama</th>
-                                        <th style="">Email</th>
-                                        <th style="">Alamat</th>
-                                        <th style="">Action</th>
+                                        <th style="">Jenis</th>
+                                        <th style="">Warna</th>
+                                        <th style="">Harga</th
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -25,13 +25,13 @@
                                             <p>{{$hitung}}</p>
                                         </td>
                                         <td class="v-align-middle semi-bold">
-                                            <p>{{$data->name}}</p>
+                                            <p>{{$data->jenis}}</p>
                                         </td>
                                         <td class="v-align-middle">
-                                            <p>{{$data->email}}</p>
+                                            <p>{{$data->warna}}</p>
                                         </td>
                                         <td class="v-align-middle">
-                                            <p>{{$data->alamat}}</p>
+                                            <p>{{$data->harga}}</p>
                                         </td>
                                         <td class="v-align-middle"><a href="#" class="btn">Edit</a> <a href="#" class="btn">Hapus</a>
                                         </td>

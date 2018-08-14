@@ -22,4 +22,6 @@ Route::group(['middleware' => 'web'], function() {
         return view('user','UserController@index');
     });
     Route::resource('user','UserController');
+
+    Route::resource('kendaraan','KendaraanController');
 });
