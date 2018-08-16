@@ -25,6 +25,9 @@
                                             <p>{{$hitung}}</p>
                                         </td>
                                         <td class="v-align-middle semi-bold">
+                                            <p>{{$data->nama}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
                                             <p>{{$data->jenis}}</p>
                                         </td>
                                         <td class="v-align-middle">

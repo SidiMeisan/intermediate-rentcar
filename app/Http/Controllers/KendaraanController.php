@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\kendaraan;
 
 class KendaraanController extends Controller
 {
@@ -14,7 +16,11 @@ class KendaraanController extends Controller
     public function index()
     {
         //
-        return view('pages.kendaraan.index');
+        $kendaraan = kendaraan::where('status', 0)
+               ->orderBy('nama', 'desc')
+               ->get();
+
+        return view('pages.kendaraan.index', ['kendaraan' => $kendaraan]);
     }
 
     /**
@@ -37,6 +43,23 @@ class KendaraanController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+        'nama' => 'required|max:255',
+        'warna' => 'required|max:255',
+        'nopol' => 'required|max:15',
+        'detail' => 'required|min:8',
+        'harga' => 'required|min:3'
+        ]);
+
+        $newKendaraan = new kendaraan;
+        $newKendaraan->nama = $request->nama;
+        $newKendaraan->warna = $request->warna;
+        $newKendaraan->nopol = $request->nopol;
+        $newKendaraan->detail = $request->detail;
+        $newKendaraan->harga = $request->harga;
+        $newKendaraan->user_id = Auth::id();
+
+        $newKendaraan->save();
     }
 
     /**

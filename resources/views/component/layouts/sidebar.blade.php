@@ -36,6 +36,7 @@
         <div class="sidebar-menu">
 
             <ul class="menu-items">
+              <?php if (Auth::check()){?>
                 <li class="m-t-30 ">
                     <a href="index.html" class="detailed">
                         <span class="title">Dashboard</span>
@@ -45,6 +46,10 @@
                 </li>
                 <li class="">
                     <a href="{{route('user.index')}}"><span class="title">User</span></a>
+                    <span class="icon-thumbnail"><i class="pg-social"></i></span>
+                </li>
+                <li class="">
+                    <a href="{{route('kendaraan.index')}}"><span class="title">Kendaraan</span></a>
                     <span class="icon-thumbnail"><i class="pg-social"></i></span>
                 </li>
                 <li>
@@ -62,7 +67,16 @@
                         </li>
                     </ul>
                 </li>
-                
+              <?php }else{?>
+                <li class="">
+                    <a href="{{route('user.login')}}"><span class="title">Login</span></a>
+                    <span class="icon-thumbnail"><i class="pg-social"></i></span>
+                </li>
+                <li class="">
+                    <a href="{{route('user.create')}}"><span class="title">register</span></a>
+                    <span class="icon-thumbnail"><i class="pg-social"></i></span>
+                </li>
+              <?php } ?>
             </ul>
             <div class="clearfix"></div>
         </div>

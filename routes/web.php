@@ -21,6 +21,9 @@ Route::group(['middleware' => 'web'], function() {
     Route::get('/user', function () {
         return view('user','UserController@index');
     });
+    Route::get('/kendaraan', function () {
+        return view('user','KendaraanController@index');
+    });
     Route::resource('user','UserController');
 
     Route::resource('kendaraan','KendaraanController');

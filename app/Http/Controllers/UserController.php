@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -16,11 +17,27 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::where('status', 0)
-               ->orderBy('name', 'desc')
-               ->get();
+        if (Auth::id()) {
+          // code...
+          $id=Auth::id()
+          $user = User::where('id', $id)
+            ->where('status', 1)
+            ->count();
+          if ($user!=0) {
+            // code...
+            $users = User::where('status', 0)
+                   ->orderBy('name', 'desc')
+                   ->get();
 
-        return view('pages.user.index', ['users' => $users]);
+            return view('pages.user.index', ['users' => $users]);
+          } else {
+            // code...
+            return view('pages.user.login');
+          }
+        } else {
+          // code...
+          return view('pages.user.login');
+        }
     }
 
     /**
