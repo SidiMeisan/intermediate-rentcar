@@ -28,3 +28,7 @@ Route::group(['middleware' => 'web'], function() {
 
     Route::resource('kendaraan','KendaraanController');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
