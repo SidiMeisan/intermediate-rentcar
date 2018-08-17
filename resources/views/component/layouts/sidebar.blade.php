@@ -69,7 +69,7 @@
                 </li>
               <?php }else{?>
                 <li class="">
-                    <a href="{{route('user.login')}}"><span class="title">Login</span></a>
+                    <a href="{{route('login')}}"><span class="title">Login</span></a>
                     <span class="icon-thumbnail"><i class="pg-social"></i></span>
                 </li>
                 <li class="">
