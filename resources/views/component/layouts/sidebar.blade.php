@@ -73,7 +73,7 @@
                     <span class="icon-thumbnail"><i class="pg-social"></i></span>
                 </li>
                 <li class="">
-                    <a href="{{route('user.create')}}"><span class="title">register</span></a>
+                    <a href="{{route('register')}}"><span class="title">register</span></a>
                     <span class="icon-thumbnail"><i class="pg-social"></i></span>
                 </li>
               <?php } ?>
