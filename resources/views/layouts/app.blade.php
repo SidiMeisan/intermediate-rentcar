@@ -54,7 +54,9 @@
                     <div class="dropdown pull-right d-lg-block d-none">
                         <?php if (Auth::id()): ?>
                           <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="semi-bold">Nama </span> <span class="text-master">User</span>
+                                <span class="semi-bold">Nama </span> <span class="text-master">
+                                    {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+                                </span>
                           </button>
                         <?php endif; ?>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">

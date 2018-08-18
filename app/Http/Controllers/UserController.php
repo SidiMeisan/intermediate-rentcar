@@ -32,11 +32,11 @@ class UserController extends Controller
             return view('pages.user.index', ['users' => $users]);
           } else {
             // code...
-            return view('pages.user.login');
+            return view('auth.login');
           }
         } else {
           // code...
-          return view('pages.user.login');
+          return view('auth.login');
         }
     }
 

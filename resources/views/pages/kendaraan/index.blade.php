@@ -19,7 +19,7 @@
                                 </thead>
                                 <tbody>
                                   <?php $hitung=1 ?>
-                                  <?php foreach ($users as $key => $data): ?>
+                                  <?php foreach ($kendaraan as $key => $data): ?>
                                     <tr>
                                         <td class="v-align-middle semi-bold">
                                             <p>{{$hitung}}</p>
