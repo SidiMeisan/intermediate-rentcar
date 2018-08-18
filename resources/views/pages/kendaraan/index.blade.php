@@ -34,7 +34,7 @@
                                             <p>{{$data->warna}}</p>
                                         </td>
                                         <td class="v-align-middle">
-                                            <p>{{$data->harga}}</p>
+                                            <p>Rp. {{format_uang($data->harga)}}</p>
                                         </td>
                                         <td class="v-align-middle"><a href="#" class="btn">Edit</a> <a href="#" class="btn">Hapus</a>
                                         </td>
