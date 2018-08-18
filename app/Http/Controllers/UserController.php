@@ -19,11 +19,11 @@ class UserController extends Controller
         //
         if (Auth::id()) {
           // code...
-          $id=Auth::id()
-          $user = User::where('id', $id)
+          $id=Auth::id();
+          $cuser = User::where('id', $id)
             ->where('status', 1)
             ->count();
-          if ($user!=0) {
+          if ($cuser!=0) {
             // code...
             $users = User::where('status', 0)
                    ->orderBy('name', 'desc')
