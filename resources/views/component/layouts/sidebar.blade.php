@@ -44,10 +44,12 @@
                     </a>
                     <span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
                 </li>
-                <li class="">
-                    <a href="{{route('user.index')}}"><span class="title">User</span></a>
-                    <span class="icon-thumbnail"><i class="pg-social"></i></span>
-                </li>
+                <?php if (Auth::user()->status!=0): ?>
+                  <li class="">
+                      <a href="{{route('user.index')}}"><span class="title">User</span></a>
+                      <span class="icon-thumbnail"><i class="pg-social"></i></span>
+                  </li>
+                <?php endif; ?>
                 <li class="">
                     <a href="{{route('kendaraan.index')}}"><span class="title">Kendaraan</span></a>
                     <span class="icon-thumbnail"><i class="pg-social"></i></span>

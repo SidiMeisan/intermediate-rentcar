@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\kendaraan;
+use App\User;
 
 class KendaraanController extends Controller
 {
@@ -31,7 +32,23 @@ class KendaraanController extends Controller
     public function create()
     {
         //
-        return view('pages.kendaraan.create');
+        if (Auth::id()) {
+          // code...
+          $id=Auth::id();
+          $cuser = User::where('id', $id)
+            ->where('status', 1)
+            ->count();
+          if ($cuser!=0) {
+            // code...
+            return view('pages.kendaraan.create');
+          } else {
+            // code...
+            return view('home');
+          }
+        } else {
+          // code...
+          return view('home');
+        }
     }
 
     /**

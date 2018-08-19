@@ -4,8 +4,10 @@
     <div id="card-advance" class="card card-default">
 
             <div class="card-body">
+              <?php if (Auth::user()->status!=0): ?>
                 <a href="{{route('kendaraan.create')}}" class="text-right pull-right btn btn-complete btn-cons">Tambah Baru</a>
-                    <div class="table-responsive">
+              <?php endif; ?>
+                <div class="table-responsive">
                             <table class="table table-striped" id="stripedTable">
                                 <thead>
                                     <tr>
@@ -34,9 +36,16 @@
                                             <p>{{$data->warna}}</p>
                                         </td>
                                         <td class="v-align-middle">
-                                            <p>Rp. {{format_uang($data->harga)}}</p>
+                                            <p>Rp. {{format_uang($data->harga)}} / day</p>
                                         </td>
-                                        <td class="v-align-middle"><a href="#" class="btn">Edit</a> <a href="#" class="btn">Hapus</a>
+                                        <?php if (Auth::user()->id==$data->id or Auth::user()->status!=0): ?>
+                                          <td class="v-align-middle">
+                                            <a href="#" class="btn">Edit</a>
+                                            <a href="#" class="btn">Hapus</a>
+                                          </td>
+                                        <?php endif; ?>
+                                        <td class="v-align-middle">
+                                          <a href="#" class="btn">Pesan ini</a>
                                         </td>
                                         <?php $hitung=$hitung+1; ?>
                                     </tr>

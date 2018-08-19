@@ -15,4 +15,10 @@ class kendaraan extends Model
     {
         Schema::dropIfExists('kendaraans');
     }
+
+    public function pemilik()
+    {
+      // code...
+      return $this->belongsTo('App\User');
+    }
 }

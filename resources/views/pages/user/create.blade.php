@@ -8,8 +8,8 @@
     <div id="card-advance" class="card card-default">
 
             <div class="card-body">
-                    <form method="post" action="{{ action('UserController@store') }}">
-                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                    <form method="post" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                        @csrf
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

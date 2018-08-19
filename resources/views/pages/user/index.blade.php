@@ -33,8 +33,6 @@
                                         <td class="v-align-middle">
                                             <p>{{$data->alamat}}</p>
                                         </td>
-                                        <td class="v-align-middle"><a href="#" class="btn">Edit</a> <a href="#" class="btn">Hapus</a>
-                                        </td>
                                         <?php $hitung=$hitung+1; ?>
                                     </tr>
                                   <?php endforeach; ?>
